@@ -12,16 +12,16 @@ def call(String buildStatus = 'STARTED') {
 
   // Override default values based on build status
   if (buildStatus == 'STARTED') {
-    color = 'YELLOW'
+    colorName = 'YELLOW'
     colorCode = '#FFFF00'
   } else if (buildStatus == 'SUCCESS') {
-    color = 'GREEN'
+    colorName = 'GREEN'
     colorCode = '#00FF00'
   } else {
-    color = 'RED'
+    colorName = 'RED'
     colorCode = '#FF0000'
   }
 
   // Calling the slackSend function to Send notifications.
-  slackSend (color: colorCode, message: summary,channel: '#slacknotification')
+  slackSend (color: colorCode, message: summary,channel: '#jenkins_slack_channel')
 }
